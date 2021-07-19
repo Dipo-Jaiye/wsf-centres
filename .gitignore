@@ -1,0 +1,13 @@
+# Ignore node modules folder
+node_modules/
+
+# Ignore environment file
+*.env
+
+# Ignore pdf files
+*.pdf
+
+# Ignore extra files
+planning.txt
+recon.js
+wsf_centers.txt

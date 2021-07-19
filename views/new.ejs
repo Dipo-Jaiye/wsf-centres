@@ -1,0 +1,16 @@
+<div class="form-group">
+    <form action="/centre" method="POST">
+        <h2>New Centre:</h2>
+        <p><label for="name">Name</label>
+        <input type="text" name="name"
+            placeholder="name" autofocus class="form-control"></p>
+        <p><label for="address">Address</label>
+        <textarea name="address" id="address" cols="70" rows="5" placeholder="house number, street, city, state" required class="form-control"></textarea></p>
+        <p><label for="contact">Contact Name (s)</label>
+        <input type="text" name="contact" placeholder="separate multiple names by commas" size="40" class="form-control"></p>
+        <p><label for="phone">Phone Number(s)</label>
+        <input type="text" name="phone" placeholder="separate multiple phone numbers by commas" size="40" class="form-control"></p>
+        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="button" class="btn btn-danger" onclick="window.history.back()">Cancel</button>
+    </form>
+</div>

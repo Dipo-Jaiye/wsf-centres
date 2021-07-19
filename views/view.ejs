@@ -1,0 +1,10 @@
+<h2>Name: <%= centre.name %></h2>
+<div>
+    <p>Address: <%= centre.address %></p>
+    <p>Contact Name (s): <%= centre.contact.join(', ') %></p>
+    <p>Phone Number(s): <%= centre.phone.join(', ') %></p>
+</div>
+<div>
+    <a href="<%= `/centre/${centre._id}/edit` %>">Update Centre details</a>
+    <a href="<%= `/map?id=${centre._id}` %>">View on Map</a>
+</div>

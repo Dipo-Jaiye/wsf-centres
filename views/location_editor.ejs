@@ -1,0 +1,16 @@
+<div class="locate-values">
+    <% centres.forEach(c => {%>
+    <div class="location-edit-box">
+        <a href="/centre/locate?id=<%= c._id %>"><%= c.contact[0] %> --- <%= c.contact[1] %></a>
+        <p><%= c.name %></p>
+        <p <% if( (c.latlng) && (typeof c.latlng.lat == "number")) { %>
+           style="color:green;"
+           <% } else { %> 
+            style="color:red;"
+            <% } %>
+            ><%= c.address %></p>
+            <p><a href="<%= `/centre/locate/edit?id=${c._id}` %>" class="card-link btn btn-primary">Edit Location</a>
+                <a href="<%= `/map?id=${c._id}` %>" class="card-link btn btn-primary">View on Map</a></p>
+    </div>
+    <% }); %> 
+</div>

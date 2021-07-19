@@ -1,0 +1,26 @@
+<div class="location-editor">
+<div class="form-group">
+    <form action=" <%= `/centre/locate/edit?id=${centre._id}&_m=put` %>" method="POST">
+        <h2>Update Centre Location:</h2>
+        <p>Name: <%= centre.name %> </p>
+        <p>Former Address: <%= centre.address %></p>
+        <p>You can fill in a new address and check its position by clicking Check</p>
+        <p><label for="address">New Address</label>
+        <textarea name="address" id="address" cols="70" rows="5" placeholder="house number, street, city, state" class="form-control"></textarea></p>
+        <button id="check" type="button">Check</button>
+        <p>Alternatively, you can use coordinates by clicking the button to use your current location or manually selecting the correct location on the map</p>
+        <p><strong>NB:</strong> Do <strong>not</strong> fill in a new address if you are using coordinates.</p>
+        <p><label for="location">Coordinates</label>
+        <input type="text" name="location" id="location"></p>
+        <button id="coordinates" type="button">Use current location</button>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="button" class="btn btn-danger" onclick="window.history.back()">Cancel</button>
+    </form>
+</div>
+</div>
+<div id="locatemap">
+</div>
+<script
+      src="<%= `https://maps.googleapis.com/maps/api/js?key=${apikey}&callback=locateMap&libraries=&v=weekly&region=NG` %>"
+      async
+></script>

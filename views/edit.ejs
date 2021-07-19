@@ -1,0 +1,19 @@
+<div class="form-group">
+    <form action=" <%= `/centre/update?_m=put` %>" method="POST">
+        <h2>Update Centre:</h2>
+        <p><input type="hidden" name="id" value="<%= centre._id %>"></p>
+        <p><label for="name">Name</label>
+        <input type="text" name="name"
+            placeholder="name" autofocus class="form-control" value="<%= centre.name %>"></p>
+        <p><label for="address">Address</label>
+        <textarea name="address" id="address" cols="70" rows="5" placeholder="house number, street, city, state" required class="form-control"><%= centre.address %></textarea></p>
+        <p><label for="contact">Contact Name (s)</label>
+        <input type="text" name="contact"
+        placeholder="separate multiple names by commas" size="40" class="form-control" value="<%= centre.contact.join(', ') %>"></p>
+        <p><label for="phone">Phone Number(s)</label>
+        <input type="text" name="phone"
+        placeholder="separate multiple phone numbers by commas" size="40" class="form-control" value="<%= centre.phone.join(', ') %>"></p>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="button" class="btn btn-danger" onclick="window.history.back()">Cancel</button>
+    </form>
+</div>
