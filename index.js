@@ -19,7 +19,6 @@ app.use(express.urlencoded({extended:true}));
 app.set("view engine", "ejs");
 app.use(layouts);
 
-app.use(methodOverride("_method",{ methods: ["POST","GET"]}));
 app.use("/", routes);
 
 app.listen(appPort, () => console.log(`App listening on port ${appPort}. http://localhost:${appPort}/`));
