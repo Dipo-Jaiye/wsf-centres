@@ -1,8 +1,6 @@
 let map;
 
-console.log("Check check");
-
-async function initMap() {
+window.initMap = async function initMap() {
     const center = { lat: 7.147533645202111, lng: 3.3617103099824286 };
   map = new google.maps.Map(document.getElementById("map"), {
     center,
@@ -53,7 +51,7 @@ async function initMap() {
     })
 }
 
-async function locateMap() {
+window.locateMap = async function locateMap() {
     const queryString = window.location.search;
     const fetchUrl = `/map${queryString}`
     const response = await fetch(fetchUrl,{method:"POST"});
