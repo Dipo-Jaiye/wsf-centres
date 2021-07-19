@@ -1,5 +1,7 @@
 let map;
 
+console.log("Check check");
+
 async function initMap() {
     const center = { lat: 7.147533645202111, lng: 3.3617103099824286 };
   map = new google.maps.Map(document.getElementById("map"), {
