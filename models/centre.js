@@ -12,4 +12,4 @@ const centreSchema = new Schema({
     place_id: String
 });
 
-module.exports = model("Centre",centreSchema);
+module.exports = model("Centre",centreSchema); 
