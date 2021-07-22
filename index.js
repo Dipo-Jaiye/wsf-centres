@@ -4,7 +4,7 @@ const layouts = require("express-ejs-layouts");
 require("dotenv").config();
 const {PORT, port} = process.env;
 const routes = require("./routes");
-const appPort = PORT || port;
+const appPort = PORT || port
 const {connectDB} = require("./db");
 
 connectDB();
