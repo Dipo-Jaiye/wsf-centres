@@ -1,25 +1,27 @@
-<h1>Welcome to the APP</h1>
+<h1>Please locate the nearest homecell center to you</h1>
 <div class="">
-    <a href="/centre">New Centre</a>
 </div>
 <% centres.forEach( (centre,i) => { %>
-   <% if((i+4)%4 == 0){ %>
+<% if((i+4)%4 == 0){ %>
 <div class="row row-cols-3">
-    <% } %>
-    <div class="col">
-    <div class="card h-100">
-        <h3 class="card-header">Name: <%= centre.name %></h3>
+  <% } %>
+
+
+</div>
+<div class="col">
+  <div class="card h-100">
+      <h3 class="card-header">Name: <%= centre.name %></h3>
         <div class="card-body">
         <p class="card-text">Address: <%= centre.address %></p>
         <p class="card-text">Contact name: <%= centre.contact.join(", ") %></p>
         <p class="card-text">Contact phone: <%= centre.phone.join(", ") %></p>
         <p><a href="<%= `/centre/${centre._id}/edit` %>" class="card-link btn btn-primary">Edit Centre</a>
         <a href="<%= `/map?id=${centre._id}` %>" class="card-link btn btn-primary">View on Map</a></p>
-        </div>
-      </div>
     </div>
-  <% if((i+4)%4 == 3){ %>
+  </div>
 </div>
-  <% }  %>
+<% if((i+4)%4 == 3){ %>
+</div>
+<% }  %>
 
 <% }); %>
