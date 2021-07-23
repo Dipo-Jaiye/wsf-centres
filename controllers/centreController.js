@@ -1,6 +1,7 @@
 require("dotenv").config();
 const {GOOGLE_MAP_API_KEY:GAT} = process.env;
 const Centre = require("../models/centre");
+const User = require('../models/user');
 const fs = require("fs");
 const {Client} = require("@googlemaps/google-maps-services-js");
 const client = new Client({});
@@ -191,6 +192,10 @@ module.exports = {
         else{
             res.redirect("/centre/locate");
         }
+    },
+
+    register: async (req, res) => {
+        res.render("register");
     },
 
     location_update: async (req,res)=> {
