@@ -28,18 +28,23 @@
         <li class="nav-item">
           <a class="nav-link" href="/map">Map</a>
         </li>
-
+        <% if(loggedIn) { %>
         <li class="nav-item">
           <a class="nav-link" href="/centre">New Centre</a>
-
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/centre/locate" tabindex="-1">Location Editor</a>
+          <a class="nav-link" href="/users/profile">Profile</a>
         </li>
-
-
-
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/users/logout" tabindex="-1">Logout (<%= currentUser.email %>)</a>
+        </li>
+        <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/users/login" tabindex="-1">Login / Register</a>
+        </li>
+        <% } %>
 
       </ul>
       <form class="form-inline my-2 my-lg-0">

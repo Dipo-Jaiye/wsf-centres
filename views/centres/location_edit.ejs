@@ -1,9 +1,10 @@
+<% if(loggedIn) { %>
 <div class="location-editor">
 <div class="form-group">
-    <form action=" <%= `/centre/locate/edit?id=${centre._id}&_m=put` %>" method="POST">
+    <form action=" <%= `/centre/locate/edit?id=${centres[0]._id}&_m=put` %>" method="POST">
         <h2>Update Centre Location:</h2>
-        <p>Name: <%= centre.name %> </p>
-        <p>Former Address: <%= centre.address %></p>
+        <p>Name: <%= centres[0].name %> </p>
+        <p>Former Address: <%= centres[0].address %></p>
         <p>You can fill in a new address and check its position by clicking Check</p>
         <p><label for="address">New Address</label>
         <textarea name="address" id="address" cols="70" rows="5" placeholder="house number, street, city, state" class="form-control"></textarea></p>
@@ -24,3 +25,6 @@
       src="<%= `https://maps.googleapis.com/maps/api/js?key=${apikey}&callback=locateMap&libraries=&v=weekly&region=NG` %>"
       async
 ></script>
+<% } else { %>
+    <p>You need to be logged in. Register/Log in <a href="/users/login">here</a> or go <a href="/">home.</a></p>
+<% } %>

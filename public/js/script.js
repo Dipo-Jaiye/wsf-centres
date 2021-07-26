@@ -15,7 +15,7 @@ window.initMap = async function() {
         <div><p>${centre.address}</p></div>
         <div><p>${centre.contact.join(", ")}</p></div>
         <div><p>${centre.phone.join(", ")}</p></div>
-        <div><a href="/centre/locate?id=${centre._id}">Location Editor</a></div>`;
+        <div><a href="/centre/locate/edit?id=${centre._id}">Location Editor</a></div>`;
     }
     const infowindow = new google.maps.InfoWindow();
     const queryString = window.location.search;
