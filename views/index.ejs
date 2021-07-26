@@ -15,7 +15,9 @@
         <p class="card-text">Address: <%= centre.address %></p>
         <p class="card-text">Contact name: <%= centre.contact.join(", ") %></p>
         <p class="card-text">Contact phone: <%= centre.phone.join(", ") %></p>
+        <% if(loggedIn) { %>
         <p><a href="<%= `/centre/${centre._id}/edit` %>" class="card-link btn btn-primary">Edit Centre</a>
+        <% } %>
         <a href="<%= `/map?id=${centre._id}` %>" class="card-link btn btn-primary">View on Map</a></p>
     </div>
   </div>

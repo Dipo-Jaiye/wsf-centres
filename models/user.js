@@ -5,10 +5,11 @@ const UserSchema = new Schema({
     email: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        lowercase: true
 
     }
 });
-UserSchema.plugin(passportLocalMongoose);
+UserSchema.plugin(passportLocalMongoose,{usernameField:"email"});
 
 module.exports = model('User', UserSchema);

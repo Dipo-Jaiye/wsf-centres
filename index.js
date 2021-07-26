@@ -3,9 +3,8 @@ const layouts = require("express-ejs-layouts");
 const {PORT, port} = require("./config/variables");
 const routes = require("./routes");
 const appPort = PORT || port;
-const { connectDB } = require("./db");
+const { connectDB, mongoSessionStore} = require("./db");
 const passport = require('passport');
-const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 
 // Connect to the MongoDB database
@@ -15,18 +14,24 @@ connectDB();
 app = express();
 
 // Load all required middleware
+// Serve static assets
 app.use(express.static("public"));
 
+// Initialize session
+app.use(mongoSessionStore());
+
+// Enable Passport
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate()));
-
+passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// Parse request bodies
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
+// Set EJS for templating
 app.set("view engine", "ejs");
 app.use(layouts);
 

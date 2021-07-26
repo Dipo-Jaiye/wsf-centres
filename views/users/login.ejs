@@ -1,12 +1,11 @@
 <div class="form-group">
-    <h1>REGISTER</h1>
-    <form action="/users/create" method="post">
+    <h1>Log In</h1>
+    <form action="/users/login" method="post">
     <p><label for="email">Email Address</label>
     <input type="email" name="email" id="email" class="form-control" required></p>
     <p><label for="password">Password</label>
     <input type="password" name="password" id="password" class="form-control" required></p>
-    <p><input type="submit" value="Register" class="btn btn-primary"></p>
+    <p><input type="submit" value="Log In" class="btn btn-primary"></p>
     </form>
 </div>
-<p>Already registered? <a href="/users/login">Log in here</a></p>
-
+<p>Not yet registered? <a href="/users/new">Register here</a></p>

@@ -1,0 +1,11 @@
+<% if(loggedIn) { %>
+<h1><%= currentUser.email %></h1>
+<div>
+    <a href="/users/edit">Edit details</a>
+</div>
+<div>
+    <a href="/users/delete">Delete Account</a>
+</div>
+<% } else { %>
+    <p>You need to be logged in. Register/Log in <a href="/users/login">here</a> or go <a href="/">home.</a></p>
+<% } %>

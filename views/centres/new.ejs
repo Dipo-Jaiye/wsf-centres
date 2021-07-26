@@ -1,3 +1,4 @@
+<% if(loggedIn) { %>
 <div class="form-group">
     <form action="/centre" method="POST">
         <h2>New Centre:</h2>
@@ -14,3 +15,6 @@
         <button type="button" class="btn btn-danger" onclick="window.history.back()">Cancel</button>
     </form>
 </div>
+<% } else { %>
+    <p>You need to be logged in. Register/Log in <a href="/users/login">here</a> or go <a href="/">home.</a></p>
+<% } %>
