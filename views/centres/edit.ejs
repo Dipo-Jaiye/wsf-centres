@@ -7,6 +7,7 @@
             placeholder="name" autofocus class="form-control" value="<%= centre.name %>"></p>
         <p><label for="address">Address</label>
         <textarea name="address" id="address" cols="70" rows="5" placeholder="house number, street, city, state" required class="form-control"><%= centre.address %></textarea></p>
+        <div><a href="<%= `/centre/locate/edit?id=${centre._id}` %>" class="card-link btn btn-primary">Edit Location</a></div>
         <p><label for="contact">Contact Name (s)</label>
         <input type="text" name="contact"
         placeholder="separate multiple names by commas" size="40" class="form-control" value="<%= centre.contact.join(', ') %>"></p>

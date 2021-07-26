@@ -8,6 +8,4 @@ node_modules/
 *.pdf
 
 # Ignore extra files
-planning.txt
-recon.js
-wsf_centers.txt
+0_files/

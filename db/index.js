@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
+const {MONGO_URI} = require("../config/variables");
 mongoose.Promise = global.Promise;
-require("dotenv").config();
-const {MONGO_URI} = process.env;
 
 module.exports = {
     connectDB: () => {

@@ -4,7 +4,7 @@ const { retrieve } = require("../controllers/centreController");
 const User = require('../models/user');
 
 
-    router.get("/register", retrieve, register);
+router.get("/", retrieve, register);
 
 
 module.exports = router;

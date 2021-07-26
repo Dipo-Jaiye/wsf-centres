@@ -1,6 +1,5 @@
-
 module.exports = {
     register: async (req, res) => {
-        res.render("register");
+        res.render("users/register");
     }
 }
