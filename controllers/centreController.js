@@ -114,8 +114,8 @@ module.exports = {
             if(id){
                 centres = await Centre.findById(id);
             } else if (searchTerm) {
-                const searchRegex = new RegExp(searchTerm);
-                centres = await Centre.find({name:searchRegex});
+                const searchRegex = new RegExp(searchTerm, 'i');
+                centres = await Centre.find({$or:[{name:searchRegex},{address:searchRegex},{contact:searchRegex},{phone:searchRegex}]});
                 res.locals.search = true;
             } else {
                 centres = await Centre.find({});
