@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const {show} = require("../controllers/mapController");
+const {show, stringify} = require("../controllers/mapController");
 const {retrieve} = require("../controllers/centreController");
 
-router.use("/", retrieve, show);
+router.use("/", retrieve, stringify, show);
 
 module.exports = router;

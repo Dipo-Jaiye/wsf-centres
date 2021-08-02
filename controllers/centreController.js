@@ -145,13 +145,14 @@ module.exports = {
     },
 
     location_edit: (req,res) => {
-        if(res.locals.centres.length == 1){
+        if(res.locals.centres.length){
+            res.redirect("/");
+        } else {
             res.locals.apikey = GAT;
+            res.locals.centre = JSON.stringify(res.locals.centres);
             res.render("centres/location_edit");
         }
-        else{
-            res.redirect("/");
-        }
+            
     },
 
     register: async (req, res) => {

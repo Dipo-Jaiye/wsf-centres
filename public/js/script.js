@@ -18,27 +18,30 @@ window.initMap = async function() {
         <div><a href="/centre/locate/edit?id=${centre._id}">Location Editor</a></div>`;
     }
     const infowindow = new google.maps.InfoWindow();
-    const queryString = window.location.search;
-    const fetchUrl = queryString ? `/map${queryString}` : "/map";
-    const response = await fetch(fetchUrl,{method:"POST"});
-    const data = await response.json();
-    data.forEach(v => {
-            const marker = new google.maps.Marker({
-                position: v.latlng,
-                map: map,
-                icon: "/img/icon.png"
-            });
-            if(queryString) map.panTo(v.latlng);
-            marker.addListener("click",() => {
-                infowindow.setContent(contentString(v));
-                infowindow.open({
-                    anchor: marker,
-                    map,
-                    shouldFocus: true
-                });
-            });
-            
+    function markerBuilder(v,infowindow,map){
+        const marker = new google.maps.Marker({
+            position: v.latlng,
+            map: map,
+            icon: "/img/icon.png"
         });
+        marker.addListener("click",() => {
+            infowindow.setContent(contentString(v));
+            infowindow.open({
+                anchor: marker,
+                map,
+                shouldFocus: true
+            });
+        });
+    }
+    const data = JSON.parse(document.getElementById("centres").value);
+    if(data.length){
+        data.forEach(v => {
+            markerBuilder(v,infowindow,map);
+        });
+    } else {
+        map.panTo(data.latlng);
+        markerBuilder(data,infowindow,map);
+    }
     const howFar = new google.maps.Marker({map});
     map.addListener("click", (ev) => {
             howFar.setPosition(ev.latLng);
@@ -52,11 +55,8 @@ window.initMap = async function() {
 }
 
 window.locateMap = async function() {
-    const queryString = window.location.search;
-    const fetchUrl = `/map${queryString}`
-    const response = await fetch(fetchUrl,{method:"POST"});
-    const data = await response.json();
-    const center = data[0].latlng;
+    const data = JSON.parse(document.getElementById("val").value);
+    const center = data.latlng;
   map = new google.maps.Map(document.getElementById("locatemap"), {
     center,
     zoom: 11,

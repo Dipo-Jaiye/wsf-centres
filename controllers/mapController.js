@@ -9,5 +9,10 @@ module.exports = {
         if(req.method === "POST"){
             res.json(res.locals.centres);
         } 
+    },
+
+    stringify: (req,res,next) => {
+        res.locals.centres = JSON.stringify(res.locals.centres);
+        next();
     }
 }
