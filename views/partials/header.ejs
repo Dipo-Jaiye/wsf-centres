@@ -25,9 +25,6 @@
           <a class="nav-link" href="/">Centres</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="/map">Map</a>
-        </li>
         <% if(loggedIn) { %>
         <li class="nav-item">
           <a class="nav-link" href="/centre">New Centre</a>
@@ -48,7 +45,7 @@
 
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="s">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>

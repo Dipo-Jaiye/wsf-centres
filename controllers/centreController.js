@@ -107,15 +107,25 @@ module.exports = {
 
     retrieve: async (req,res,next) => {
         const id = req.query.id;
-        await Centre.find({})
-        .then(centres => {
-            centres = id ? centres.filter(centre => centre._id == id) : centres;
+        const searchTerm = req.query.s;
+        let centres;
+        res.locals.search = false;
+        try {
+            if(id){
+                centres = await Centre.findById(id);
+            } else if (searchTerm) {
+                const searchRegex = new RegExp(searchTerm);
+                centres = await Centre.find({name:searchRegex});
+                res.locals.search = true;
+            } else {
+                centres = await Centre.find({});
+            }
             res.locals.centres = centres;
             next();
-        })
-        .catch(error => {
-            next(error);
-        })
+        } catch {err => {
+            next(err);
+        }}
+        
     },
 
     record: (req,res) => {

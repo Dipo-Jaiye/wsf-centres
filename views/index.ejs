@@ -1,4 +1,8 @@
+<% if(search) { %>
+<h4>Search results (<%= centres.length %>)</h4>
+<% } else { %>
 <h1>Please locate the nearest homecell center to you</h1>
+<% } %>
 <div class="">
 </div>
 <% centres.forEach( (centre,i) => { %>

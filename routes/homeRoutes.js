@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const {index} = require("../controllers/homeController");
-const {retrieve} = require("../controllers/centreController");
+const {retrieve, search} = require("../controllers/centreController");
 
 router.get("/", retrieve, index);
 
